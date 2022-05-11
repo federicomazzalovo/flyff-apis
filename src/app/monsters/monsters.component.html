@@ -1,0 +1,54 @@
+<h2>Monsters</h2>
+
+<app-monster-detail [monster]="selectedMonster"></app-monster-detail>
+
+<!-- <ul class="monsters">
+  <li *ngFor="let monster of monsters">
+    <button type="button" (click)="onSelect(monster)" [class.selected]="monster === selectedMonster">
+      <img src="../../assets/images/{{monster.icon}}" />
+      <span class="badge">{{monster.id}}</span> {{monster.name.en}} {{monster.icon}}
+    </button>    
+  </li>
+</ul> -->
+
+
+
+
+
+<div *ngIf="!dataLoaded">
+  <div>
+    Loading...
+  </div>
+  <div class="spinner-border" role="status">  
+  </div>
+</div>
+
+<div *ngIf="dataLoaded">
+  <form>
+    <div class="mb-3 row">
+      <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
+      <div class="col-xs-3 col-sm-auto">
+        <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter">
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Level</th>
+      <th scope="col">Icon</th>
+      <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let monster of tableDatasource$ | async; index as i" (click)="onSelect(monster)">
+      <th scope="row"><ngb-highlight [result]="monster.level | number" [term]="filter.value"></ngb-highlight></th>
+      <td>
+        <img src="../../assets/images/{{monster.icon}}" class="me-2" style="width: 20px">      
+      </td>
+      <td><ngb-highlight [result]="monster.name.en" [term]="filter.value"></ngb-highlight></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
