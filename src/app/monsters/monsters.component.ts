@@ -32,6 +32,10 @@ export class MonstersComponent implements OnInit {
     this.selectedMonster = monster;
   }
 
+  onDeselectMonster(): void{
+    this.selectedMonster = undefined;
+  }
+
   getMonsters(): void{
     this.monsterService.getMonsters()
           .subscribe(monsters => { 

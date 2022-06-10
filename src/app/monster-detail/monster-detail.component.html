@@ -1,5 +1,21 @@
 
 <div *ngIf="monster">
-    <h2>{{monster.name.en | uppercase}}</h2>
-    <div>Id: {{monster.id}}</div>
+    <div class="form-group">
+        <img src="../../assets/images/{{monster.icon}}" class="me-2"/>
+    </div>
+
+    <div class="form-group">
+        <label for="monsterId">Id</label>
+        <input type="text" readonly class="form-control" id="monsterId" value="{{monster.id}}">
+    </div>
+
+    <div class="form-group">
+        <label for="monsterName">Name</label>
+        <input type="text" readonly class="form-control" id="monsterName" value="{{monster.name.en | uppercase}}">
+    </div>
+
+    <div class="form-group">
+        <label for="monsterLevel">Level</label>
+        <input type="text" readonly class="form-control" id="monsterLevel" value="{{monster.level}}">
+    </div>
 </div>
