@@ -39,7 +39,7 @@ export class MonstersComponent implements OnInit {
   getMonsters(): void{
     this.monsterService.getMonsters()
           .subscribe(monsters => { 
-            this.monsters = monsters.sort((monster1, monster2) => monster1.level - monster2.level); 
+            this.monsters = monsters.sort((monster1, monster2) => monster1.level - monster2.level);
             this.initTableDatasource();
           });
   }
