@@ -29,7 +29,9 @@ export class MonstersComponent implements OnInit {
   }
 
   onSelect(monster: Monster): void {
-    this.selectedMonster = monster;
+
+    this.monsterService.getMonster(monster.id)
+          .subscribe(monsterDTO => this.selectedMonster = monsterDTO);    
   }
 
   onDeselectMonster(): void{

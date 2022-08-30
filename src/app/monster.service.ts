@@ -14,7 +14,7 @@ export class MonsterService {
   }
 
   getMonster(id: number): Observable<Monster>{
-    const url = environment.apiEndpoint + 'monster/' + id;
+    const url = environment.apiEndpoint + 'monsters/' + id;
     return this.http.get<Monster>(url);
   }
 
