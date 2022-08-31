@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of} from 'rxjs';
-import { Monster } from './monster';
+import { Monster } from '../models/monster';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
